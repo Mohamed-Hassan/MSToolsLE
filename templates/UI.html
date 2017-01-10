@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+
+
+
+    h1 {
+        text-align: center;
+    }
+
+
+    form {
+        border: 1px solid #c6c7cc;
+        border-radius: 5px;
+        overflow: hidden;
+        width: 540px;
+        padding:20px ;
+        margin-top: 1%;
+        margin-bottom: 5%;
+        margin-right: 25%;
+        margin-left: 25%;
+    }
+
+    .date label{
+        float: left;
+        width:40px;
+    }
+    #W {
+        width:40px;
+    }
+
+</style>
+
+<script type="text/javascript">
+
+
+
+function addFeild() {
+    var addKeyword = document.getElementById('newKeyword');
+    addKeyword.innerHTML = 'Keyword &nbsp;<input class="key" name="keyword" type="text">' +
+                            'Wight <input class="W" name="wight" type="number"  min="1" max="10">';
+
+}
+</script>
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Social Media Tools</title>
+
+
+</head>
+<body>
+
+<h1> Social Media Tools </h1>
+
+<div class="mainForm">
+<form >
+
+    <div class="date">
+    <label for="dfrom">From</label>
+     <input id="dfrom" name="enter date" type="datetime" > <br>
+    <label for="dTo">To</label>
+     <input id="dTo" name="enter date2" type="datetime" > <br>
+      </div>
+
+
+     <div class="location">
+    Location <select name="state">
+                <option value="PA"> PA </option>
+                <option value="CO"> CO </option>
+                <option value="TX"> TX </option>
+                <option value="CA"> CA </option>
+                <option value="NY"> NY </option>
+             </select>
+    <br>
+         </div>
+
+
+    <div class="keyword">
+    Keyword &nbsp;<input class="key" name="keyword" type="text">
+    Wight <input class="W" name="wight" type="number"  min="1" max="10">
+     </div>
+
+    <div id="newKeyword">   ----   </div>
+
+
+    <input id="add" type="button" onclick="addFeild(); return false;">
+
+</form>
+
+</div>
+
+</body>
+</html>
