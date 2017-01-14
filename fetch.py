@@ -10,13 +10,16 @@ twitter_api = twitter.Twitter(auth=auth)
 
 print twitter_api
 
-WORLD_WOE_ID = 1
-US_WOE_ID = 23424977
-
-world_trends = twitter_api.trends.place(_id=WORLD_WOE_ID)
-us_trends = twitter_api.trends.place(_id=US_WOE_ID)
-print world_trends
-print
-print us_trends
-
-
+q = "erie"
+search_results = twitter_api.search.tweets(q=q)
+print search_results
+statuses = search_results['statuses']
+print status_texts
+status_texts = [ status['text']
+                   for status in statuses ]
+screen_names = [ user_mention['screen_name']
+                  for status in statuses
+                         for user_mention in status['entities']['user_mentions'] ]
+hashtags = [ hashtag['text']
+             for status in statuses
+                for hashtag in status['entities']['hashtags'] ]
