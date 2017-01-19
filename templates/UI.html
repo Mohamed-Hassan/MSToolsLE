@@ -1,59 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
-<style>
-
-
-
-    h1 {
-        text-align: center;
-    }
-
-
-    form {
-        border: 1px solid #c6c7cc;
-        border-radius: 5px;
-        overflow: hidden;
-        width: 540px;
-        padding:20px ;
-        margin-top: 1%;
-        margin-bottom: 5%;
-        margin-right: 25%;
-        margin-left: 25%;
-    }
-
-    .date label{
-        float: left;
-        width:40px;
-    }
-    #W {
-        width:40px;
-    }
-
-</style>
-
-<script type="text/javascript">
-
-
-
-function addFeild() {
-    var addKeyword = document.getElementById('newKeyword');
-    addKeyword.innerHTML = 'Keyword &nbsp;<input class="key" name="keyword" type="text">' +
-                            'Wight <input class="W" name="wight" type="number"  min="1" max="10">';
-
-}
-</script>
-
-
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Social Media Tools</title>
+    <style>
+	.mainForm{
+		alignment: center;
+        border:solid;
+        padding: 11px;
+        margin:auto;
+	}
 
 
+    </style>
+    <title>
+        MSToolsLE
+    </title>
 </head>
 <body>
-
-<h1> Social Media Tools </h1>
 
 <div class="mainForm">
 <form >
@@ -78,19 +40,62 @@ function addFeild() {
          </div>
 
 
-    <div class="keyword">
-    Keyword &nbsp;<input class="key" name="keyword" type="text">
-    Wight <input class="W" name="wight" type="number"  min="1" max="10">
+    <div id="keyword">
+   <!-- Keyword &nbsp;<input class="key" name="keyword" type="text">
+    Wight <input class="W" name="wight" type="number"  min="1" max="10"> -->
+
+
      </div>
 
-    <div id="newKeyword">   ----   </div>
+
+<script>
+function addTextField(id){
+		var colors = new Array('#660000','#33ff00','#0066ff','#cc3399','#9966ff');
+		var container = document.getElementById(id);
+		var ulElement = document.createElement('ul');
+		container.appendChild(ulElement);
+		var hideLink = function(){
+			var firstElement = ulElement.firstChild.getElementsByTagName('a')[0];
+				firstElement.style.display = (ulElement.childNodes.length==1)?'none':'inline';
+			//for(var i = 0 ; i <ulElement.childNodes.length; i++)
+				//ulElement.childNodes[i].style.color = colors[i%5];
+		}
+		var addListElement = function(){
+			var liElement = document.createElement('li');
+			ulElement.appendChild(liElement);
+			var textElement = document.createElement('input');
+            var numElement = document.createElement('input');
+	        liElement.appendChild(document.createTextNode('keyword'));
+			textElement.setAttribute('type','text');
+			liElement.appendChild(textElement);
+
+		    liElement.appendChild(document.createTextNode('Wight'));
+            numElement.setAttribute('type','number');
+            liElement.appendChild(numElement);
+
+			var deleteLink = document.createElement('a');
+			deleteLink.href = "#";
+			deleteLink.appendChild(document.createTextNode('delete'));
+			liElement.appendChild(deleteLink);
+			deleteLink.onclick = function(){
+				ulElement.removeChild(liElement);
+				hideLink();
+			}
+			hideLink();
+		}
+		addListElement();
+		var anchorElement = document.createElement('a');
+		anchorElement.href = "#";
+		anchorElement.appendChild(document.createTextNode('Add keyword'));
+		container.appendChild(anchorElement);
+		anchorElement.onclick = addListElement;
+		hideLink();
 
 
-    <input id="add" type="button" onclick="addFeild(); return false;">
-
-</form>
-
-</div>
+	}
+addTextField('keyword');
+</script>
 
 </body>
 </html>
+
