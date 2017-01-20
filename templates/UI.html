@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+    <script src="../static/js/receive.js"></script>
     <style>
+
 	.mainForm{
 		alignment: center;
         border:solid;
         padding: 11px;
-        margin:auto;
+        width: 50%;
+        margin:0 auto;
+
 	}
+        form {
+            display: table;
+            padding: 10px;
+        }
+        #dTo,#dfrom{
+            alignment: 20px;
+        }
 
 
     </style>
@@ -18,13 +30,13 @@
 <body>
 
 <div class="mainForm">
-<form >
+<form  action="localhost/templates/UI" method="get">
 
     <div class="date">
     <label for="dfrom">From</label>
-     <input id="dfrom" name="enter date" type="datetime" > <br>
+     <input id="dfrom" name="dfrom" type="datetime" > <br>
     <label for="dTo">To</label>
-     <input id="dTo" name="enter date2" type="datetime" > <br>
+     <input id="dTo" name="dTo" type="datetime" > <br>
       </div>
 
 
@@ -47,6 +59,9 @@
 
      </div>
 
+    <input type="submit" id="submit" >
+</form>
+</div>
 
 <script>
 function addTextField(id){
