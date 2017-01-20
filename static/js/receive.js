@@ -1,6 +1,7 @@
 /**
  * Created by MGH on 1/19/17.
  */
+/*
 $(function () {
     $('#submit').click(function () {
         $.ajax({
@@ -17,4 +18,4 @@ $(function () {
             }
         });
     });
-});
+});*/

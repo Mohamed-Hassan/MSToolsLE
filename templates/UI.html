@@ -30,7 +30,7 @@
 <body>
 
 <div class="mainForm">
-<form  action="localhost/templates/UI" method="get">
+<form  action="http://localhost:5000/Response" method="POST">
 
     <div class="date">
     <label for="dfrom">From</label>
@@ -55,13 +55,16 @@
     <div id="keyword">
    <!-- Keyword &nbsp;<input class="key" name="keyword" type="text">
     Wight <input class="W" name="wight" type="number"  min="1" max="10"> -->
+         <input type="submit" id="submit" >
 
 
      </div>
 
-    <input type="submit" id="submit" >
+
 </form>
 </div>
+
+
 
 <script>
 function addTextField(id){
@@ -81,7 +84,7 @@ function addTextField(id){
 			var textElement = document.createElement('input');
             var numElement = document.createElement('input');
 	        liElement.appendChild(document.createTextNode('keyword'));
-			textElement.setAttribute('type','text');
+			textElement.setAttribute('type','text','id','keyword', 'name','keyword');
 			liElement.appendChild(textElement);
 
 		    liElement.appendChild(document.createTextNode('Wight'));
