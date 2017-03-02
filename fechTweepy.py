@@ -1,21 +1,39 @@
-import SMToolsLE
+
 
 import tweepy
-from tweepy import OAuthHandler
+import json
 
 
-consumer_key = '7lO82bYVdJC9BTyqOGUnrXh5M'
-consumer_secret = 'TN2eCN33TRaKGSZRtXGBL5xccGljLzx6h2wiAnFVs4hQhP1DZG'
-access_token = '809545887399706624-m6Fp4Vw8Xkezm0d88yyr13qfJAtpoKj'
-access_secret = 'UnumW6OLy1FIa2wXs4hU8c3qUfTbsrwoYLvsrzymxk6WS'
 
-auth = OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_token, access_secret)
+def fetch_tweets(q,dateFrom,dateTo):
+    consumer_key = '7lO82bYVdJC9BTyqOGUnrXh5M'
+    consumer_secret = 'TN2eCN33TRaKGSZRtXGBL5xccGljLzx6h2wiAnFVs4hQhP1DZG'
+    access_token = '809545887399706624-m6Fp4Vw8Xkezm0d88yyr13qfJAtpoKj'
+    access_secret = 'UnumW6OLy1FIa2wXs4hU8c3qUfTbsrwoYLvsrzymxk6WS'
 
-api = tweepy.API(auth)
-#print api
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_secret)
 
-query = SMToolsLE.keyword
-max_tweets = 50
-searched_tweets = [status.text.encode('utf-8') for status in tweepy.Cursor(api.search, q=query).items(max_tweets)]
-print  searched_tweets
+    api = tweepy.API(auth)
+    print api
+    max_tweets = 11
+    #searched_tweets = [status.text.encode('utf-8') for status in tweepy.Cursor(api.search, q=q).items(max_tweets)]   "5.29126,52.132633,250km"
+    searched_tweets = [status for status in tweepy.Cursor(api.search,q=q,since= dateFrom ,until= dateTo).items(max_tweets)]
+
+    tweets_data = []
+    for line in searched_tweets:
+        alltweetvalues = [str(line.user.screen_name.encode('utf-8')), str(line.created_at),str(line.text.encode('utf-8'))]
+        tweets_data.append(alltweetvalues)
+
+    return tweets_data
+
+
+
+
+
+
+
+
+
+#q= "saw"
+#print fetch_tweets(q=q)
