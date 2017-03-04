@@ -3,25 +3,21 @@
    <body>
 
       <table border = 1>
+             <tr>
+                     <th>User Name</th>
+                     <th>Date</th>
+                     <th>Tweet</th>
+             </tr>
          {% for value in Response %}
 
             <tr>
-
                <td> {{ value[0].decode('utf-8') }} </td>
-            </tr>
-
-             <tr>
-
                <td> {{ value[1] }} </td>
-            </tr>
-
-             <tr>
-
                <td> {{ value[2].decode('utf-8') }} </td>
             </tr>
 
-
          {% endfor %}
+
       </table>
 
    </body>

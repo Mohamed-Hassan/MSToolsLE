@@ -113,6 +113,24 @@ function addTextField(id){
 	}
 {#   addTextField('keyword');#}
 </script>
+{# a table to display the retrieved data using janja2 #}
+<table border = 1>
+             <tr>
+                     <th>User Name</th>
+                     <th>Date</th>
+                     <th>Tweet</th>
+             </tr>
+         {% for value in Response %}
+
+            <tr>
+               <td> {{ value[0].decode('utf-8') }} </td> {# must decode to display on the browser #}
+               <td> {{ value[1] }} </td>
+               <td> {{ value[2].decode('utf-8') }} </td>
+            </tr>
+
+         {% endfor %}
+
+      </table>
 
 </body>
 </html>

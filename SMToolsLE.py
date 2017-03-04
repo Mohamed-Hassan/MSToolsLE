@@ -22,21 +22,21 @@ def Response():
     dto = request.form['dTo']
     wight = request.form['wight']
     keyword = request.form['keyword']
-    dfromobj = datetime.strptime(dfrom, '%m/%d/%Y')
+    dfromobj = datetime.strptime(dfrom, '%m/%d/%Y') # to convert date format to date object
     dtoobj = datetime.strptime(dto, '%m/%d/%Y')
-    dfrom = datetime.strftime(dfromobj, '%Y-%m-%d')
+    dfrom = datetime.strftime(dfromobj, '%Y-%m-%d') # convert date from 01/01/2017 to 2017-01-01
     dto = datetime.strftime(dtoobj, '%Y-%m-%d')
-    print dfrom
+    print dfrom  # just for testing
     print  dto
     print  wight
     print  keyword
     print request.form
     nse = request.form
-    tweets = fetch_tweets(q=keyword, dateFrom= dfrom , dateTo= dto)
+    tweets = fetch_tweets(q=keyword, dateFrom= dfrom , dateTo= dto) # call fetch_tweets method and pass the form input
 
     print  tweets
 
-    return render_template("Response.html", Response = tweets )
+    return render_template("UI.html", Response = tweets )  # render the list tweet to UI.html
 
 
 
