@@ -114,7 +114,7 @@ function addTextField(id){
 {#   addTextField('keyword');#}
 </script>
 {# a table to display the retrieved data using janja2 #}
-<table border = 1>
+<table id="myTable" border = 1>
              <tr>
                      <th>User Name</th>
                      <th>Date</th>
@@ -122,8 +122,9 @@ function addTextField(id){
              </tr>
          {% for value in Response %}
 
+
             <tr>
-               <td> {{ value[0].decode('utf-8') }} </td> {# must decode to display on the browser #}
+               <td id="pro" onclick =window.open('http://twitter.com/{{ value[0].decode('utf-8') }}')> {{ value[0].decode('utf-8') }} </td> {# must decode to display on the browser #}
                <td> {{ value[1] }} </td>
                <td> {{ value[2].decode('utf-8') }} </td>
             </tr>
@@ -131,6 +132,20 @@ function addTextField(id){
          {% endfor %}
 
       </table>
+<script>
+   //function showProfile(){
+      // var table = document.getElementById('myTable');
+      // var profile = table.rows.cells.namedItem('pro');
+
+       //var twitterURL = 'https://twitter.com/';
+       // var profileURL = twitterURL.concat(profile);
+
+
+
+   // }
+
+
+</script>
 
 </body>
 </html>
