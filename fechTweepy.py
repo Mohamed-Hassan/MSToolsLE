@@ -1,15 +1,15 @@
 
-
+import  CONFIG
 import tweepy
 import json
 
 
 
 def fetch_tweets(q,dateFrom,dateTo):
-    consumer_key = '7lO82bYVdJC9BTyqOGUnrXh5M'
-    consumer_secret = 'TN2eCN33TRaKGSZRtXGBL5xccGljLzx6h2wiAnFVs4hQhP1DZG'
-    access_token = '809545887399706624-m6Fp4Vw8Xkezm0d88yyr13qfJAtpoKj'
-    access_secret = 'UnumW6OLy1FIa2wXs4hU8c3qUfTbsrwoYLvsrzymxk6WS'
+    consumer_key = CONFIG.PASS['consumer_key']
+    consumer_secret = CONFIG.PASS['consumer_secret']
+    access_token = CONFIG.PASS['access_token']
+    access_secret = CONFIG.PASS['access_secret']
 
     auth = tweepy.OAuthHandler(consumer_key, consumer_secret)  # set up twitter api OAut token
     auth.set_access_token(access_token, access_secret)
@@ -18,7 +18,7 @@ def fetch_tweets(q,dateFrom,dateTo):
     print api
     max_tweets = 5     # eliminate the number of tweets to control the process as a draft
     #searched_tweets = [status.text.encode('utf-8') for status in tweepy.Cursor(api.search, q=q).items(max_tweets)]   "5.29126,52.132633,250km"
-    searched_tweets = [status for status in tweepy.Cursor(api.search,q=q,since= dateFrom ,until= dateTo).items(max_tweets)]
+    searched_tweets = [status for status in tweepy.Cursor(api.search,q=q,since= dateFrom ,until= dateTo,geocode= "42.129224,-80.085059,40km").items(max_tweets)]
 
     tweets_data = []
     for line in searched_tweets:
