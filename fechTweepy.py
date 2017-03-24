@@ -5,7 +5,7 @@ import json
 
 
 
-def fetch_tweets(q,dateFrom,dateTo):
+def fetch_tweets(q,dateFrom,dateTo,city):
     consumer_key = CONFIG.PASS['consumer_key']
     consumer_secret = CONFIG.PASS['consumer_secret']
     access_token = CONFIG.PASS['access_token']
@@ -16,9 +16,9 @@ def fetch_tweets(q,dateFrom,dateTo):
 
     api = tweepy.API(auth)
     print api
-    max_tweets = 5     # eliminate the number of tweets to control the process as a draft
+    max_tweets = 50    # eliminate the number of tweets to control the process as a draft
     #searched_tweets = [status.text.encode('utf-8') for status in tweepy.Cursor(api.search, q=q).items(max_tweets)]   "5.29126,52.132633,250km"
-    searched_tweets = [status for status in tweepy.Cursor(api.search,q=q,since= dateFrom ,until= dateTo,geocode= "42.129224,-80.085059,40km").items(max_tweets)]
+    searched_tweets = [status for status in tweepy.Cursor(api.search,q=q,since= dateFrom ,until= dateTo,geocode= city).items(max_tweets)]
 
     tweets_data = []
     for line in searched_tweets:

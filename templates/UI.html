@@ -11,15 +11,25 @@
         padding: 11px;
         width: 50%;
         margin:0 auto;
+        margin-top: 20px;
 
 	}
-        form {
+       /*form {
             display: table;
             padding: 10px;
         }
         #dTo,#dfrom{
             alignment: 20px;
-        }
+        }*/
+    {##myTable{
+
+
+    }#}
+    th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+      }
 
 
     </style>
@@ -41,25 +51,28 @@
 
 
      <div class="location">
-    Location <select name="state">
-                <option value="PA"> PA </option>
-                <option value="CO"> CO </option>
+    Location <select name="city">
+                <option value="Erie"> Erie </option>
+                <option value="Pittsburgh"> Pittsburgh </option>
+                <option value="Philadelphia"> Philadelphia </option>
+                <option value="Harrisburg"> Harrisburg </option>
+               <!-- <option value="CO"> CO </option>
                 <option value="TX"> TX </option>
                 <option value="CA"> CA </option>
-                <option value="NY"> NY </option>
+                <option value="NY"> NY </option>  -->
              </select>
     <br>
          </div>
 
 
     <div id="keyword">
-    Keyword &nbsp;<input class="key" name="keyword" type="text">
+  <!--  Keyword &nbsp;<input class="key" name="keyword" type="text">
     Wight <input class="W" name="wight" type="number"  min="1" max="10">
-         <input type="submit" id="submit" >
+         <input type="submit" id="submit" >    -->
 
 
      </div>
-
+           <input type="submit" id="submit" >
 
 </form>
 </div>
@@ -68,29 +81,35 @@
 
 <script>
 function addTextField(id){
-		var colors = new Array('#660000','#33ff00','#0066ff','#cc3399','#9966ff');
-		var container = document.getElementById(id);
-		var ulElement = document.createElement('ul');
+		var container = document.getElementById(id); // container to access to keyword div
+		var ulElement = document.createElement('ul'); // here using unordered list to hold the text field element
 		container.appendChild(ulElement);
 		var hideLink = function(){
 			var firstElement = ulElement.firstChild.getElementsByTagName('a')[0];
-				firstElement.style.display = (ulElement.childNodes.length==1)?'none':'inline';
-			//for(var i = 0 ; i <ulElement.childNodes.length; i++)
-				//ulElement.childNodes[i].style.color = colors[i%5];
+				firstElement.style.display = (ulElement.childNodes.length==1)?'none':'inline'; // condition to display the delete like only when more than li fields
 		}
 		var addListElement = function(){
 			var liElement = document.createElement('li');
-			ulElement.appendChild(liElement);
+			ulElement.appendChild(liElement); // using list item to hold both keyword and its weight
 			var textElement = document.createElement('input');
-            var numElement = document.createElement('input');
-	        liElement.appendChild(document.createTextNode('keyword'));
-			textElement.setAttribute('type','text','id','keyword', 'name','keyword');
+			var count = ulElement.childElementCount;  // to give unique key to input text to sent POST to the server
+            var text = 'Keyword';
+            var wordKey = text.concat(count);   // adding number returning from ulElement to string keyword to give unique key e.x keyword1 Keyword2 and so on
+	        liElement.appendChild(document.createTextNode(wordKey));
+			textElement.setAttribute('type','text');
+			textElement.setAttribute('id',wordKey);
+			textElement.setAttribute('name',wordKey);
 			liElement.appendChild(textElement);
-
+			var textw = 'wieght';
+			var wieghtKey = textw.concat(count);
+            var numElement = document.createElement('input');
 		    liElement.appendChild(document.createTextNode('Wight'));
             numElement.setAttribute('type','number');
+            numElement.setAttribute('id',wieghtKey);
+            numElement.setAttribute('name',wieghtKey);
+            numElement.setAttribute('min','1');
+            numElement.setAttribute('max','10');
             liElement.appendChild(numElement);
-
 			var deleteLink = document.createElement('a');
 			deleteLink.href = "#";
 			deleteLink.appendChild(document.createTextNode('delete'));
@@ -108,13 +127,14 @@ function addTextField(id){
 		container.appendChild(anchorElement);
 		anchorElement.onclick = addListElement;
 		hideLink();
-
-
 	}
-{#   addTextField('keyword');#}
+addTextField('keyword');
 </script>
+{{ formData }}  {# to display the requsted data form in order to see the exact result of the user input to render it in the form
+
+ there  it need to be more orgnized my be need javascript functionalaty or just life i=t at it #}
 {# a table to display the retrieved data using janja2 #}
-<table id="myTable" border = 1>
+<table >
              <tr>
                      <th>User Name</th>
                      <th>Date</th>
