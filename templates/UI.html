@@ -135,7 +135,7 @@ addTextField('keyword');
 
  there  it need to be more orgnized my be need javascript functionalaty or just life i=t at it #}
 {# a table to display the retrieved data using janja2 #}
-<table >
+<table  id="myTable">
              <tr>
                      <th>User Name</th>
                      <th>Date</th>
@@ -169,9 +169,9 @@ addTextField('keyword');
                  {% elif value[0] == 8  %}
                 <td width="230"> <span><font size="5" color = "red"> &#9873; &#9873; &#9873; &#9873; &#9873; &#9873; &#9873; &#9873; &#9872; &#9872;  </font></span> </td>
                  {% elif value[0] == 9  %}
-                <td width="230"> <span><font size="5" color = "red"> &#9873; &#9873; &#9873; &#9873; &#9873; &#9873; &#9873; &#9872; &#9873; &#9872;  </font></span> </td>
+                <td width="230"> <span><font size="5" color = "red"> &#9873; &#9873; &#9873; &#9873; &#9873; &#9873; &#9873; &#9873; &#9873; &#9872;  </font></span> </td>
                    {% elif value[0] == 10  %}
-                <td width="230"> <span><font size="5" color = "red"> &#9873; &#9873; &#9873; &#9873; &#9873; &#9873; &#9873; &#9872; &#9872; &#9873;  </font></span> </td>
+                <td width="230"> <span><font size="5" color = "red"> &#9873; &#9873; &#9873; &#9873; &#9873; &#9873; &#9873; &#9873; &#9873; &#9873;  </font></span> </td>
                    {% else  %}
                 <td width="230"> <span><font size="5" color = "red"> &#9873; &#9873; &#9873; &#9873; &#9873; &#9873; &#9873; &#9873; &#9873; &#9873;  </font></span> </td>
                    {% endif %}
@@ -183,16 +183,26 @@ addTextField('keyword');
 
       </table>
 <script>
-   //function showProfile(){
-      // var table = document.getElementById('myTable');
-      // var profile = table.rows.cells.namedItem('pro');
+   function sortFalgs() {
+       var table, row  ;
 
-       //var twitterURL = 'https://twitter.com/';
-       // var profileURL = twitterURL.concat(profile);
+       table = document.getElementById("myTable");
+       row = table.getElementsByTagName("TR");
+       var xtry = row[0].getElementsByTagName("TD")[3];
+       console.log(xtry)
 
 
 
-   // }
+       for(i = 1; i< (row.length - 1); i++){
+           x = row[i].getElementsByTagName("TD")[3];
+           y = row[i + 1].getElementsByTagName("TD")[3];
+
+           if (x.innerHTML)
+
+
+       }
+
+   }
 
 
 </script>

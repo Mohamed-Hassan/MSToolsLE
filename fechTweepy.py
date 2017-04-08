@@ -4,7 +4,7 @@ import string
 import CDictionary
 import CONFIG
 import tweepy
-from operator import itemgetter
+
 
 def cleanTweet(text):
     text = re.sub(r"http\s+", "",text)
@@ -45,10 +45,10 @@ def fetch_tweets(q,dateFrom,dateTo,city,wieght):
         tweets_data.append(atweet)    # encoding text data
 
 
-    sorTweets = sorted(tweets_data, key=itemgetter(0), reverse=True)
-    print '========================='
-    print sorTweets
-    return sorTweets
+    #sorTweets = sorted(tweets_data, key=itemgetter(0), reverse=True)
+    #print '========================='
+    #print sorTweets
+    return tweets_data
 
 
 
