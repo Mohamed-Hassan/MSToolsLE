@@ -44,9 +44,9 @@
 
     <div class="date">
     <label for="dfrom">From</label>
-     <input id="dfrom" name="dfrom" type="datetime" > <br>
+     <input id="dfrom" name="dfrom" type="date" > <br>
     <label for="dTo">To</label>
-     <input id="dTo" name="dTo" type="datetime" > <br>
+     <input id="dTo" name="dTo" type="date" > <br>
       </div>
 
 
@@ -57,6 +57,7 @@
                 <option value="Pittsburgh"> Pittsburgh </option>
                 <option value="Philadelphia"> Philadelphia </option>
                 <option value="Harrisburg"> Harrisburg </option>
+                <option value="Chicago"> Chicago </option>
                <!-- <option value="CO"> CO </option>
                 <option value="TX"> TX </option>
                 <option value="CA"> CA </option>
@@ -110,6 +111,7 @@ function addTextField(id){
             numElement.setAttribute('name',wieghtKey);
             numElement.setAttribute('min','1');
             numElement.setAttribute('max','10');
+            numElement.setAttribute('value','1');
             liElement.appendChild(numElement);
 			var deleteLink = document.createElement('a');
 			deleteLink.href = "#";
@@ -182,30 +184,7 @@ addTextField('keyword');
          {% endfor %}
 
       </table>
-<script>
-   function sortFalgs() {
-       var table, row  ;
 
-       table = document.getElementById("myTable");
-       row = table.getElementsByTagName("TR");
-       var xtry = row[0].getElementsByTagName("TD")[3];
-       console.log(xtry)
-
-
-
-       for(i = 1; i< (row.length - 1); i++){
-           x = row[i].getElementsByTagName("TD")[3];
-           y = row[i + 1].getElementsByTagName("TD")[3];
-
-           if (x.innerHTML)
-
-
-       }
-
-   }
-
-
-</script>
 
 </body>
 </html>

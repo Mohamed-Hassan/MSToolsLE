@@ -26,6 +26,8 @@ def Response():
         city = "39.9703447,-75.1377113,20km"
     elif request.form['city'] == 'Harrisburg':
         city = "40.273191,-76.886701,20km"
+    elif request.form['city'] == 'Chicago':
+        city = "41.8781,-87.6298,20km"
     elif request.form['city'] == 'all':
         city = " "
 
@@ -37,7 +39,7 @@ def Response():
     dto = datetime.strftime(dtoobj, '%Y-%m-%d')
 
 
-    if len(request.form) == 5 :
+    if len(request.form) == 5:
         wieght1 = request.form['wieght1']
         Keyword1 = request.form['Keyword1']
         tweets = fetch_tweets(q=Keyword1, dateFrom= dfrom , dateTo= dto, city= city, wieght= wieght1 ) # call fetch_tweets method and pass the form input
@@ -254,7 +256,7 @@ def Response():
 
 
 
-    print  alltweets
+    #print  alltweets
     fd = request.form.to_dict()
 
     return render_template("UI.html", Response = soredTweets, formData = fd )  # render the list tweet to UI.html
