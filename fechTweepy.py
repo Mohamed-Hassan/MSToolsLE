@@ -26,7 +26,7 @@ def fetch_tweets(q,dateFrom,dateTo,city,wieght):
     print api
     wieght = wieght.encode('utf-8')
     wieght = int(wieght)
-    max_tweets = 100   # eliminate the number of tweets to control the rate limit.
+    max_tweets = 1000   # eliminate the number of tweets to control the rate limit.
     searched_tweets = [status for status in tweepy.Cursor(api.search,q=q,
                                           since= dateFrom ,until= dateTo,
                                            geocode= city).items(max_tweets)]

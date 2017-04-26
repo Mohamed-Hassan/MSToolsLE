@@ -2,43 +2,85 @@
 <html>
 <head>
 
-    <script src="../static/js/receive.js"></script>
+
     <style>
+        nav {
+            position: fixed;
+    top: 0px;
+    width: 100%;
+            background-color: green;
+        }
+ #heading {
+    list-style-type: none;
+     top: 0px;
+    margin: 0;
+    padding: 0;
+    display: block;
+    background-color: #4CAF50;
+     width: 100%;
+}
 
 	.mainForm{
 		alignment: center;
         border:solid;
+        border-color: #4CAF50;
         padding: 11px;
         width: 50%;
         margin:0 auto;
         margin-top: 20px;
+        background-color: white;
 
 	}
-       /*form {
-            display: table;
-            padding: 10px;
-        }
-        #dTo,#dfrom{
-            alignment: 20px;
-        }*/
-    {##myTable{
+    input[type=submit] {
+        background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 9px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    }
+    
+    h1{
+        margin: 0;
+       text-align: center;
+        background: #4CAF50;
+        alignment: top;
+    }
+   #myTable {
+    font-family: "Times New Roman", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    }
 
+    #myTable td, #myTable th {
+    border: 3px solid #ddd;
+    padding: 7px;
+    }
 
-    }#}
-    th, td {
-    padding: 8px;
+     #myTable tr:nth-child(even){background-color: #f2f2f2;}
+
+     #myTable tr:hover {background-color: #ddd;}
+
+     #myTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
-      }
+    background-color: #4CAF50;
+    color: white;
+}
+
 
 
     </style>
     <title>
-        MSToolsLE
+        SMToolsLE
     </title>
 </head>
 <body>
-
+<nav > </nav>
+<ul id="heading">   </ul>
+<h1> Social Media Tool </h1>
 <div class="mainForm">
 <form  action="http://localhost:5000/Response" method="POST">
 
@@ -58,20 +100,13 @@
                 <option value="Philadelphia"> Philadelphia </option>
                 <option value="Harrisburg"> Harrisburg </option>
                 <option value="Chicago"> Chicago </option>
-               <!-- <option value="CO"> CO </option>
-                <option value="TX"> TX </option>
-                <option value="CA"> CA </option>
-                <option value="NY"> NY </option>  -->
+
              </select>
     <br>
          </div>
 
 
     <div id="keyword">
-  <!--  Keyword &nbsp;<input class="key" name="keyword" type="text">
-    Wight <input class="W" name="wight" type="number"  min="1" max="10">
-         <input type="submit" id="submit" >    -->
-
 
      </div>
            <input type="submit" id="submit" >
@@ -105,7 +140,7 @@ function addTextField(id){
 			var textw = 'wieght';
 			var wieghtKey = textw.concat(count);
             var numElement = document.createElement('input');
-		    liElement.appendChild(document.createTextNode('Wight'));
+		    liElement.appendChild(document.createTextNode('Weight'));
             numElement.setAttribute('type','number');
             numElement.setAttribute('id',wieghtKey);
             numElement.setAttribute('name',wieghtKey);
